@@ -32,6 +32,49 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
+        /* --- Color scheme: Red dominant + Sandal accent --- */
+        :root {
+            --primary: #8B1A2A;
+            --sandal: #B78D65;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+        }
+
+        /* Red — buttons, borders, major UI */
+        .text-primary { color: #8B1A2A !important; }
+        .bg-primary { background-color: #8B1A2A !important; }
+        .border-primary { border-color: #8B1A2A !important; }
+
+        .btn-primary {
+            background-color: #8B1A2A !important;
+            border-color: #8B1A2A !important;
+            color: #fff !important;
+        }
+        .btn-primary:hover {
+            background-color: #6B1020 !important;
+            border-color: #6B1020 !important;
+        }
+
+        /* Sandal — section labels, icons, subtle accents */
+        .section-title { color: #B78D65 !important; }
+
+        .fact-item .fact-icon i,
+        .feature-img + div i,
+        .appointment-info i { color: #B78D65 !important; }
+
+        /* Nav hover stays red */
+        .navbar .navbar-nav .nav-link:hover,
+        .navbar .navbar-nav .nav-link.active { color: #8B1A2A !important; }
+
+        /* About years box border: red */
+        .border-5.border-primary { border-color: #8B1A2A !important; }
+
+        /* Project nav pill active: red */
+        .project .nav .nav-link.active { background-color: #8B1A2A !important; }
+
+        /* Footer icon accents: sandal */
+        .footer .btn.btn-link::before { color: #B78D65 !important; }
+
         /* --- Fonts --- */
         body {
             font-family: 'Jost', sans-serif !important;
@@ -82,10 +125,57 @@
             font-size: clamp(48px, 8vw, 110px) !important;
             font-weight: 600 !important;
             font-style: italic !important;
-            line-height: 0.88 !important;
-            letter-spacing: -0.03em !important;
+            line-height: 0.92 !important;
+            letter-spacing: -0.02em !important;
             color: #fff !important;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
+        }
+
+        /* --- Mobile responsiveness --- */
+        @media (max-width: 767.98px) {
+            /* Navbar brand smaller */
+            .navbar-brand h1 { font-size: 18px !important; }
+
+            /* Hero headline tighter on mobile */
+            .hero-headline {
+                font-size: clamp(38px, 11vw, 64px) !important;
+                margin-bottom: 24px;
+            }
+
+            /* Hero buttons stack */
+            .owl-carousel-inner .btn {
+                display: block !important;
+                width: 100% !important;
+                margin-right: 0 !important;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            /* About image block: hide stacked layout, show single image */
+            .about-img, .feature-img { min-height: 260px !important; }
+
+            /* Service items full width */
+            .service-item { min-height: 280px; }
+
+            /* Fact section top padding */
+            .container.pt-5 { padding-top: 2rem !important; }
+
+            /* Project tabs full width */
+            .project .nav .nav-link { margin-bottom: 8px; }
+
+            /* Appointment form spacing */
+            .col-lg-6.wow.fadeInUp .d-flex { flex-direction: column; align-items: flex-start !important; }
+
+            /* Section headings */
+            .display-5 { font-size: clamp(24px, 6vw, 34px) !important; }
+
+            /* Footer columns spacing */
+            .footer .col-lg-3 { margin-bottom: 1.5rem; }
+        }
+
+        @media (max-width: 991.98px) {
+            /* Navbar appointment button hidden on tablet — already d-none d-lg-block but ensure */
+            .header-carousel .owl-carousel-item img { height: 70vh !important; min-height: 400px; }
         }
     </style>
 </head>
@@ -99,30 +189,6 @@
     <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark p-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-3">
-                    <a class="text-body px-2" href="tel:+0123456789"><i class="fa fa-phone-alt text-primary me-2"></i>+012 345 6789</a>
-                    <a class="text-body px-2" href="mailto:info@example.com"><i class="fa fa-envelope-open text-primary me-2"></i>info@example.com</a>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-2">
-                    <a class="text-body px-2" href="">Terms</a>
-                    <a class="text-body px-2" href="">Privacy</a>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-sm-square btn-outline-body me-0" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
 
 
     <!-- Navbar Start -->
@@ -138,15 +204,7 @@
                 <a href="index.html" class="nav-item nav-link active">Home</a>
                 <a href="#about-section" class="nav-item nav-link">About</a>
                 <a href="#services-section" class="nav-item nav-link">Services</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu border-0 m-0">
-                        <a href="#features-section" class="dropdown-item">Our Features</a>
-                        <a href="#projects-section" class="dropdown-item">Our Projects</a>
-                        <a href="#appointment-section" class="dropdown-item">Appointment</a>
-                        <a href="#testimonials-section" class="dropdown-item">Testimonial</a>
-                    </div>
-                </div>
+                <a href="#projects-section" class="nav-item nav-link">Projects</a>
                 <a href="#appointment-section" class="nav-item nav-link">Contact</a>
             </div>
             <a href="#appointment-section" class="btn btn-primary py-2 px-4 d-none d-lg-block">Appointment</a>
@@ -158,13 +216,13 @@
     <!-- Carousel Start -->
     <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+            <div class="owl-carousel-item position-relative" data-dot="<img src='img/new/interior.jpg'>">
+                <img class="img-fluid" src="img/new/interior.jpg" alt="">
                 <div class="owl-carousel-inner">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-12 col-lg-10">
-                                <h1 class="hero-headline animated slideInDown">Design<br>Your<br>Dream</h1>
+                            <div class="col-12 col-lg-9">
+                                <h1 class="hero-headline animated slideInDown">Design Your<br>Dream</h1>
                                 <a href="#services-section" class="btn btn-primary py-3 px-5 me-3 animated slideInLeft">Our Services</a>
                                 <a href="#appointment-section" class="btn btn-outline-light py-3 px-5 animated slideInLeft">Book Appointment</a>
                             </div>
@@ -172,13 +230,13 @@
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-2.jpg'>">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+            <div class="owl-carousel-item position-relative" data-dot="<img src='img/new/ACP-Interior-Design-A-Modern-Choice-for-Stylish-Interiors.jpg'>">
+                <img class="img-fluid" src="img/new/ACP-Interior-Design-A-Modern-Choice-for-Stylish-Interiors.jpg" alt="">
                 <div class="owl-carousel-inner">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-12 col-lg-10">
-                                <h1 class="hero-headline animated slideInDown">Design<br>Your<br>Dream</h1>
+                            <div class="col-12 col-lg-9">
+                                <h1 class="hero-headline animated slideInDown">Design Your<br>Dream</h1>
                                 <a href="#services-section" class="btn btn-primary py-3 px-5 me-3 animated slideInLeft">Our Services</a>
                                 <a href="#appointment-section" class="btn btn-outline-light py-3 px-5 animated slideInLeft">Book Appointment</a>
                             </div>
@@ -186,13 +244,13 @@
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-3.jpg'>">
-                <img class="img-fluid" src="img/carousel-3.jpg" alt="">
+            <div class="owl-carousel-item position-relative" data-dot="<img src='img/new/Residence-of-Mr.-Kannan-Srinivasan.jpg'>">
+                <img class="img-fluid" src="img/new/Residence-of-Mr.-Kannan-Srinivasan.jpg" alt="">
                 <div class="owl-carousel-inner">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-12 col-lg-10">
-                                <h1 class="hero-headline animated slideInDown">Design<br>Your<br>Dream</h1>
+                            <div class="col-12 col-lg-9">
+                                <h1 class="hero-headline animated slideInDown">Design Your<br>Dream</h1>
                                 <a href="#services-section" class="btn btn-primary py-3 px-5 me-3 animated slideInLeft">Our Services</a>
                                 <a href="#appointment-section" class="btn btn-outline-light py-3 px-5 animated slideInLeft">Book Appointment</a>
                             </div>
@@ -289,8 +347,7 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-5.png" alt="Icon">
                             <h3 class="mb-3">ACP Resort Work</h3>
-                            <p class="mb-4">We specialize in luxury-style ACP resort structures with seamless finishes, modern designs, and weather-proof materials — built with excellence.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-0">We specialize in luxury-style ACP resort structures with seamless finishes, modern designs, and weather-proof materials — built with excellence.</p>
                         </div>
                     </div>
                 </div>
@@ -300,8 +357,7 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-6.png" alt="Icon">
                             <h3 class="mb-3">ACP Elevation Work</h3>
-                            <p class="mb-4">Long-lasting durability with custom colors and patterns. Heat and weather resistant — perfect for commercial, industrial, and residential properties.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-0">Long-lasting durability with custom colors and patterns. Heat and weather resistant — perfect for commercial, industrial, and residential properties.</p>
                         </div>
                     </div>
                 </div>
@@ -311,8 +367,7 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-7.png" alt="Icon">
                             <h3 class="mb-3">LED Designs</h3>
-                            <p class="mb-4">Custom LED signage, backlit panels, architectural LED designs, and indoor/outdoor illumination setups that add life, identity, and elegance.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-0">Custom LED signage, backlit panels, architectural LED designs, and indoor/outdoor illumination setups that add life, identity, and elegance.</p>
                         </div>
                     </div>
                 </div>
@@ -322,8 +377,7 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-8.png" alt="Icon">
                             <h3 class="mb-3">Roofing & Welding</h3>
-                            <p class="mb-4">Precision fabrication for homes, industrial sheds, commercial buildings, and customized structures. Our skilled welding team delivers safety in every job.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-0">Precision fabrication for homes, industrial sheds, commercial buildings, and customized structures. Our skilled welding team delivers safety in every job.</p>
                         </div>
                     </div>
                 </div>
@@ -333,8 +387,7 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-9.png" alt="Icon">
                             <h3 class="mb-3">All Interiors & Exteriors</h3>
-                            <p class="mb-4">Complete interior and exterior design solutions for homes, commercial spaces, industries, and premium projects — tailored to your vision.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-0">Complete interior and exterior design solutions for homes, commercial spaces, industries, and premium projects — tailored to your vision.</p>
                         </div>
                     </div>
                 </div>
@@ -344,7 +397,7 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-10.png" alt="Icon">
                             <h3 class="mb-3">House of Plywood</h3>
-                            <p class="mb-4">Your one-stop solution for premium plywood sheets, laminates & veneers, MDF boards, and WPC materials — for carpenters, contractors, and homeowners.</p>
+                            <p class="mb-0">Your one-stop solution for premium plywood sheets, laminates & veneers, MDF boards, and WPC materials — for carpenters, contractors, and homeowners.</p>
                             <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
