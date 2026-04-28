@@ -32,13 +32,21 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        /* --- Color scheme: Red dominant + Sandal accent --- */
+        /* --- Color scheme: Red dominant + Sandal background --- */
         :root {
             --primary: #8B1A2A;
             --sandal: #B78D65;
             --dark: #1A1A1A;
-            --light: #F5F5F5;
+            --light: #EAD9BF;
         }
+
+        /* Warm sandal backgrounds replace all whites */
+        body { background-color: #F5ECD9 !important; }
+        .bg-white { background-color: #FDF6EC !important; }
+        .bg-light { background-color: #EAD9BF !important; }
+        .navbar.bg-white { background-color: #FDF6EC !important; }
+        .service-item .service-text { background: #EAD9BF !important; }
+        #spinner { background: #F5ECD9 !important; }
 
         /* Red — buttons, borders, major UI */
         .text-primary { color: #8B1A2A !important; }
@@ -74,6 +82,37 @@
 
         /* Footer icon accents: sandal */
         .footer .btn.btn-link::before { color: #B78D65 !important; }
+
+        /* Icons → red (filter converts dark PNG icons to maroon) */
+        .fact-icon img,
+        .service-text img,
+        .d-flex.align-items-start img.flex-shrink-0 {
+            filter: invert(12%) sepia(90%) saturate(900%) hue-rotate(330deg) brightness(0.85) contrast(1.1);
+        }
+
+        /* About years box — mobile fix */
+        .about-years-box {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 575.98px) {
+            .about-years-box {
+                width: 80px;
+                height: 80px;
+            }
+            .about-years-box .display-1 {
+                font-size: 32px !important;
+            }
+            .d-flex.align-items-center.mb-5 {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 16px;
+            }
+            .d-flex.align-items-center.mb-5 .ps-4 {
+                padding-left: 0 !important;
+            }
+        }
 
         /* --- Fonts --- */
         body {
@@ -306,8 +345,8 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img">
-                        <img class="img-fluid" src="img/about-1.jpg" alt="">
-                        <img class="img-fluid" src="img/about-2.jpg" alt="">
+                        <img class="img-fluid" src="img/new/Office-interior-with-Aludecor-ACP-sheet.jpg" alt="">
+                        <img class="img-fluid" src="img/new/071ac6475a4b9de229039e4a5f3a762e.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -316,7 +355,7 @@
                     <p>We transform your ideas into modern, functional, and aesthetically stunning spaces. With years of craftsmanship and a passion for design, we deliver high-quality interior and exterior solutions for homes, commercial spaces, industries, and premium projects.</p>
                     <p class="mb-4">Every project is handled with care, creativity, and commitment to deliver long-lasting beauty and value. We don't just design spaces — we design your dreams.</p>
                     <div class="d-flex align-items-center mb-5">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-primary" style="width: 120px; height: 120px;">
+                        <div class="about-years-box d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-primary">
                             <h1 class="display-1 mb-n2" data-toggle="counter-up">25</h1>
                         </div>
                         <div class="ps-4">
@@ -343,7 +382,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="img/service-1.jpg" alt="">
+                        <img class="bg-img" src="img/new/acp-sheet-design-compressed.jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-5.png" alt="Icon">
                             <h3 class="mb-3">ACP Resort Work</h3>
@@ -353,7 +392,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="img/service-2.jpg" alt="">
+                        <img class="bg-img" src="img/new/Customized-Interior-Aluminium-Sheet-Manufacturer-Wall-3mm-Black-ACP-Aluminum-Composite-Panel.avif" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-6.png" alt="Icon">
                             <h3 class="mb-3">ACP Elevation Work</h3>
@@ -363,7 +402,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="img/service-3.jpg" alt="">
+                        <img class="bg-img" src="img/new/images (2).jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-7.png" alt="Icon">
                             <h3 class="mb-3">LED Designs</h3>
@@ -373,7 +412,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="img/service-4.jpg" alt="">
+                        <img class="bg-img" src="img/new/images (3).jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-8.png" alt="Icon">
                             <h3 class="mb-3">Roofing & Welding</h3>
@@ -383,7 +422,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="img/service-5.jpg" alt="">
+                        <img class="bg-img" src="img/new/ACP-Interior-Design-A-Modern-Choice-for-Stylish-Interiors.jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-9.png" alt="Icon">
                             <h3 class="mb-3">All Interiors & Exteriors</h3>
@@ -393,7 +432,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="img/service-6.jpg" alt="">
+                        <img class="bg-img" src="img/new/interior.jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="img/icons/icon-10.png" alt="Icon">
                             <h3 class="mb-3">House of Plywood</h3>
@@ -448,8 +487,8 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="feature-img">
-                        <img class="img-fluid" src="img/about-2.jpg" alt="">
-                        <img class="img-fluid" src="img/about-1.jpg" alt="">
+                        <img class="img-fluid" src="img/new/acp-sheet-design-compressed.jpg" alt="">
+                        <img class="img-fluid" src="img/new/Residence-of-Mr.-Kannan-Srinivasan.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -488,7 +527,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/project-1.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/new/acp-sheet-design-compressed.jpg"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -506,7 +545,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/project-2.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/new/Office-interior-with-Aludecor-ACP-sheet.jpg"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -524,7 +563,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/project-3.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/new/images (2).jpg"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -542,7 +581,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/project-4.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/new/images (3).jpg"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -724,13 +763,8 @@
         <div class="container-fluid copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="#">ST Interiors & Exteriors</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        <br> Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    <div class="col-12 text-center">
+                        &copy; Envidox Solutions, All Rights Reserved.
                     </div>
                 </div>
             </div>
