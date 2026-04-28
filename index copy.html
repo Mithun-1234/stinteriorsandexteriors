@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ST Interiors & Exteriors</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Cormorant Garamond + Jost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+
+        /* ════════════════════════════
+           TOKENS
+        ════════════════════════════ */
+        :root {
+            --cream:       #F6F2EC;
+            --cream-dark:  #EDE8DF;
+            --charcoal:    #181818;
+            --charcoal-2:  #222222;
+            --gold:        #9A7B4F;
+            --gold-light:  #C4A882;
+            --gold-pale:   #EAE0D0;
+            --muted:       #7D7568;
+            --border:      #DDD6CB;
+            --white:       #FFFFFF;
+        }
+
+        /* ════════════════════════════
+           BASE
+        ════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            font-family: 'Jost', sans-serif !important;
+            font-weight: 300 !important;
+            background-color: var(--cream) !important;
+            color: var(--charcoal) !important;
+            font-size: 15px;
+            letter-spacing: 0.01em;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        .h1, .h2, .h3, .h4, .h5, .h6,
+        .display-1, .display-5 {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+        }
+
+        p { line-height: 1.9; margin-bottom: 0; }
+
+        /* ════════════════════════════
+           COLOUR OVERRIDES
+        ════════════════════════════ */
+        .text-primary  { color: var(--gold) !important; }
+        .bg-primary    { background-color: var(--gold) !important; }
+        .bg-light      { background-color: var(--cream-dark) !important; }
+        .bg-dark       { background-color: var(--charcoal) !important; }
+
+        /* ════════════════════════════
+           BUTTONS
+        ════════════════════════════ */
+        .btn-primary {
+            background-color: var(--gold) !important;
+            border: 1px solid var(--gold) !important;
+            border-radius: 0 !important;
+            color: #fff !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 10px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            padding: 14px 34px !important;
+            transition: all 0.3s ease !important;
+        }
+        .btn-primary:hover {
+            background-color: var(--charcoal) !important;
+            border-color: var(--charcoal) !important;
+        }
+
+        /* ════════════════════════════
+           SECTION LABEL
+        ════════════════════════════ */
+        .section-title,
+        h4.section-title {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 14px !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 9px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.35em !important;
+            text-transform: uppercase !important;
+            color: var(--gold) !important;
+            background: transparent !important;
+            padding: 0 !important;
+            margin-bottom: 20px !important;
+        }
+        .section-title::before,
+        h4.section-title::before {
+            content: '' !important;
+            display: inline-block !important;
+            width: 32px !important;
+            height: 1px !important;
+            background: var(--gold) !important;
+            position: static !important;
+            transform: none !important;
+            flex-shrink: 0;
+        }
+        .section-title::after { display: none !important; }
+
+        /* On dark sections */
+        .label-light,
+        .label-light::before {
+            color: var(--gold-light) !important;
+            background: var(--gold-light) !important;
+        }
+
+        /* ════════════════════════════
+           SPINNER
+        ════════════════════════════ */
+        #spinner { background-color: var(--cream) !important; }
+
+        /* ════════════════════════════
+           TOPBAR
+        ════════════════════════════ */
+        #topbar {
+            background-color: var(--charcoal) !important;
+            border-bottom: 1px solid #282828;
+        }
+        #topbar a {
+            color: rgba(255,255,255,0.38) !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+        }
+        #topbar a:hover { color: var(--gold-light) !important; }
+        #topbar .fa { color: var(--gold) !important; margin-right: 6px; }
+        #topbar .btn-sm-square {
+            width: 28px !important; height: 28px !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            color: rgba(255,255,255,0.3) !important;
+            font-size: 10px !important;
+            transition: all 0.2s;
+        }
+        #topbar .btn-sm-square:hover {
+            border-color: var(--gold) !important;
+            color: var(--gold) !important;
+        }
+
+        /* ════════════════════════════
+           NAVBAR
+        ════════════════════════════ */
+        #mainNav {
+            background-color: var(--white) !important;
+            border-bottom: 1px solid var(--border) !important;
+            box-shadow: none !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        #mainNav .navbar-brand { padding: 20px 0 !important; }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 20px !important;
+            font-weight: 600 !important;
+            color: var(--charcoal) !important;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        #mainNav .nav-link {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 10px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.18em !important;
+            text-transform: uppercase !important;
+            color: var(--charcoal) !important;
+            padding: 28px 14px !important;
+            transition: color 0.2s;
+        }
+        #mainNav .nav-link:hover,
+        #mainNav .nav-link.active { color: var(--gold) !important; }
+        #mainNav .dropdown-menu {
+            border: 1px solid var(--border) !important;
+            border-radius: 0 !important;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.06) !important;
+            padding: 10px 0 !important;
+            margin-top: 0 !important;
+        }
+        #mainNav .dropdown-item {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 10px !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: var(--muted) !important;
+            padding: 10px 22px !important;
+        }
+        #mainNav .dropdown-item:hover {
+            background-color: var(--cream-dark) !important;
+            color: var(--gold) !important;
+        }
+        #mainNav .navbar-toggler {
+            border: 1px solid var(--border) !important;
+            border-radius: 0 !important;
+        }
+
+        /* ════════════════════════════
+           HERO
+        ════════════════════════════ */
+        #heroCarousel { background: var(--charcoal); }
+        #heroCarousel .owl-carousel-item { position: relative; overflow: hidden; }
+        #heroCarousel .owl-carousel-item > img {
+            width: 100%;
+            height: 95vh;
+            min-height: 600px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.38);
+        }
+        #heroCarousel .owl-carousel-inner {
+            position: absolute !important;
+            inset: 0 !important;
+            display: flex !important;
+            align-items: flex-end !important;
+            padding-bottom: 100px !important;
+            padding-top: 0 !important;
+        }
+        .hero-tag {
+            font-family: 'Jost', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .hero-tag::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold-light);
+            flex-shrink: 0;
+        }
+        #heroCarousel h1 {
+            font-size: clamp(52px, 9.5vw, 122px) !important;
+            color: #fff !important;
+            font-style: italic !important;
+            line-height: 0.96 !important;
+            margin-bottom: 32px;
+            letter-spacing: -0.01em !important;
+        }
+        #heroCarousel .hero-sub {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 300 !important;
+            color: rgba(255,255,255,0.5) !important;
+            max-width: 420px;
+            line-height: 1.9;
+            margin-bottom: 44px;
+        }
+        .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.22) !important;
+            color: rgba(255,255,255,0.65) !important;
+            background: transparent !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 10px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            border-radius: 0 !important;
+            padding: 14px 34px !important;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.06) !important;
+            border-color: rgba(255,255,255,0.45) !important;
+            color: #fff !important;
+        }
+        /* Scroll hint */
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px;
+            right: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-scroll span {
+            font-family: 'Jost', sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            writing-mode: vertical-rl;
+        }
+        .hero-scroll-line {
+            width: 1px;
+            height: 48px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+        }
+        /* Owl dots */
+        #heroCarousel .owl-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #heroCarousel .owl-dot span {
+            width: 5px !important;
+            height: 5px !important;
+            background: rgba(255,255,255,0.25) !important;
+            border-radius: 50% !important;
+            margin: 4px !important;
+            transition: all 0.3s !important;
+        }
+        #heroCarousel .owl-dot.active span {
+            background: var(--gold-light) !important;
+            width: 28px !important;
+            border-radius: 3px !important;
+        }
+
+        /* ════════════════════════════
+           STATS STRIP
+        ════════════════════════════ */
+        #stats {
+            background: var(--charcoal-2);
+            border-top: 1px solid #2E2E2E;
+            border-bottom: 1px solid #2E2E2E;
+            padding: 0;
+        }
+        .stats-inner {
+            display: flex;
+            align-items: stretch;
+        }
+        .stat-item {
+            flex: 1;
+            padding: 44px 0;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: clamp(40px, 5vw, 60px);
+            font-weight: 300;
+            color: var(--gold-light);
+            line-height: 1;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            display: block;
+        }
+
+        /* ════════════════════════════
+           PILLARS
+        ════════════════════════════ */
+        #facts { background: var(--white); padding: 110px 0; }
+        .pillar-card {
+            padding: 44px 36px 40px;
+            height: 100%;
+            border-top: 1px solid var(--border);
+            position: relative;
+            transition: border-color 0.3s;
+        }
+        .pillar-card:hover { border-top-color: var(--gold); }
+        .pillar-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: 28px;
+        }
+        .pillar-card h3 {
+            font-size: 24px !important;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+        .pillar-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.9;
+        }
+
+        /* ════════════════════════════
+           ABOUT
+        ════════════════════════════ */
+        #about { background: var(--cream); padding: 120px 0; }
+        .about-visual {
+            position: relative;
+            padding-bottom: 72px;
+            padding-right: 56px;
+        }
+        .about-img-primary {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        .about-img-secondary {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 58%;
+            height: 260px;
+            object-fit: cover;
+            border: 7px solid var(--cream);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+        #about h1 {
+            font-size: clamp(32px, 4.5vw, 56px) !important;
+            line-height: 1.08 !important;
+            margin-bottom: 28px;
+        }
+        #about .body-text { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+        .exp-strip {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin: 44px 0 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .exp-box {
+            border: 1px solid var(--gold);
+            width: 96px;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .exp-number {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 52px !important;
+            font-weight: 300 !important;
+            line-height: 1;
+            color: var(--charcoal);
+        }
+        .exp-unit {
+            font-family: 'Jost', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+        .exp-text {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+        .exp-text strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--charcoal);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ════════════════════════════
+           SERVICES
+        ════════════════════════════ */
+        #services { background: var(--charcoal); padding: 120px 0; }
+        .svc-header { margin-bottom: 56px; }
+        .svc-header .section-main-title {
+            font-size: clamp(30px, 4.5vw, 58px) !important;
+            color: #fff !important;
+            line-height: 1.05 !important;
+            max-width: 540px;
+        }
+        .svc-card {
+            position: relative;
+            overflow: hidden;
+            height: 360px;
+            cursor: pointer;
+        }
+        .svc-card img.svc-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.42);
+            transition: transform 0.7s ease, filter 0.7s ease;
+        }
+        .svc-card:hover img.svc-bg {
+            transform: scale(1.06);
+            filter: brightness(0.3);
+        }
+        .svc-card-body {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+        }
+        .svc-card h3 {
+            color: #fff !important;
+            font-size: 24px !important;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        .svc-card p {
+            color: rgba(255,255,255,0.5) !important;
+            font-size: 12px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            max-width: 300px;
+        }
+        .svc-link {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 9px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold-light) !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: gap 0.2s;
+        }
+        .svc-link:hover { gap: 14px; }
+        .svc-link::after { content: '→'; }
+
+        /* ════════════════════════════
+           WHY CHOOSE US
+        ════════════════════════════ */
+        #features { background: var(--white); padding: 120px 0; }
+        .features-title {
+            font-size: clamp(30px, 4.5vw, 58px) !important;
+            line-height: 1.05 !important;
+            margin-bottom: 20px;
+        }
+        .features-intro { font-size: 14px; color: var(--muted); margin-bottom: 44px; max-width: 480px; }
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .why-item:first-of-type { border-top: 1px solid var(--border); }
+        .why-num {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 13px;
+            color: var(--gold);
+            letter-spacing: 0.12em;
+            min-width: 30px;
+            padding-top: 4px;
+            flex-shrink: 0;
+        }
+        .why-item h3 {
+            font-size: 22px !important;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+        .why-item p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.8; }
+        .features-visual {
+            position: relative;
+            padding-top: 56px;
+            padding-left: 44px;
+        }
+        .features-img-primary {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            display: block;
+        }
+        .features-img-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 54%;
+            height: 230px;
+            object-fit: cover;
+            border: 7px solid var(--white);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+        }
+
+        /* ════════════════════════════
+           PROJECTS
+        ════════════════════════════ */
+        #projects { background: var(--cream); padding: 120px 0; }
+        .projects-title {
+            font-size: clamp(30px, 4.5vw, 58px) !important;
+            line-height: 1.05 !important;
+            margin-bottom: 56px;
+        }
+        #projects .nav-pills .nav-link {
+            background: var(--white) !important;
+            border: none !important;
+            border-left: 2px solid transparent !important;
+            border-radius: 0 !important;
+            color: var(--muted) !important;
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            padding: 20px 26px !important;
+            width: 100% !important;
+            text-align: left !important;
+            display: flex !important;
+            align-items: center !important;
+            margin-bottom: 3px !important;
+            transition: all 0.2s ease !important;
+        }
+        #projects .nav-pills .nav-link:hover,
+        #projects .nav-pills .nav-link.active {
+            background: var(--cream-dark) !important;
+            border-left-color: var(--gold) !important;
+            color: var(--charcoal) !important;
+        }
+        #projects .nav-pills .nav-link h3 {
+            font-size: 20px !important;
+            color: inherit !important;
+            margin: 0 !important;
+            font-weight: 400 !important;
+        }
+        #projects .tab-pane h1 {
+            font-size: clamp(24px, 3vw, 36px) !important;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+        #projects .tab-pane .project-desc { font-size: 14px; color: var(--muted); line-height: 1.9; margin-bottom: 24px; }
+        .project-check {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+        .project-check::before {
+            content: '';
+            width: 22px;
+            height: 1px;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+
+        /* ════════════════════════════
+           APPOINTMENT
+        ════════════════════════════ */
+        #appointment { background: var(--charcoal); padding: 120px 0; }
+        #appointment .appt-title {
+            font-size: clamp(30px, 4vw, 48px) !important;
+            color: #fff !important;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+        #appointment .appt-sub { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 48px; max-width: 400px; line-height: 1.9; }
+        .contact-tile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .contact-tile:first-of-type { border-top: 1px solid rgba(255,255,255,0.07); }
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(154,123,79,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--gold);
+            font-size: 13px;
+        }
+        .contact-tile .ct-label {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3) !important;
+            display: block;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        .contact-tile h3 {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            color: rgba(255,255,255,0.85) !important;
+        }
+        #appointment .form-control,
+        #appointment .form-select {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.14) !important;
+            border-radius: 0 !important;
+            color: #fff !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.06em;
+            padding: 16px 0 !important;
+            height: auto !important;
+            box-shadow: none !important;
+        }
+        #appointment .form-control::placeholder {
+            color: rgba(255,255,255,0.25) !important;
+            text-transform: uppercase;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+        }
+        #appointment .form-control:focus,
+        #appointment .form-select:focus {
+            border-bottom-color: var(--gold) !important;
+            box-shadow: none !important;
+            outline: none;
+        }
+        #appointment .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff30' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+            background-color: transparent !important;
+            color: rgba(255,255,255,0.25) !important;
+            text-transform: uppercase;
+            font-size: 9px !important;
+            letter-spacing: 0.2em;
+        }
+        #appointment .form-select option { background: #222; color: #fff; }
+        #appointment textarea.form-control { padding: 16px 0 !important; resize: none; }
+        .appt-submit {
+            padding: 18px !important;
+            font-size: 10px !important;
+            letter-spacing: 0.24em !important;
+            margin-top: 8px;
+        }
+
+        /* ════════════════════════════
+           TESTIMONIALS
+        ════════════════════════════ */
+        #testimonials { background: var(--cream-dark); padding: 120px 0; }
+        .testimonials-title {
+            font-size: clamp(30px, 4.5vw, 58px) !important;
+            line-height: 1.05 !important;
+            max-width: 520px;
+            margin: 0 auto 64px;
+        }
+        .testimonial-item { padding: 0 52px 20px; }
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: clamp(18px, 2.4vw, 25px) !important;
+            font-weight: 300 !important;
+            font-style: italic;
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            position: relative;
+        }
+        .testimonial-quote::before {
+            content: '\201C';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 100px;
+            line-height: 0;
+            vertical-align: -46px;
+            color: var(--gold);
+            opacity: 0.5;
+            margin-right: 2px;
+            font-style: normal;
+        }
+        .testimonial-name {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+        .testimonial-role {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 9px !important;
+            letter-spacing: 0.24em !important;
+            text-transform: uppercase;
+            color: var(--gold) !important;
+        }
+        .testimonial-carousel .owl-dot span {
+            width: 5px !important;
+            height: 5px !important;
+            background: var(--border) !important;
+            border-radius: 50% !important;
+            margin: 5px !important;
+            transition: all 0.3s !important;
+        }
+        .testimonial-carousel .owl-dot.active span {
+            background: var(--gold) !important;
+            width: 24px !important;
+            border-radius: 3px !important;
+        }
+        .testimonial-carousel .owl-dots { margin-top: 40px !important; }
+
+        /* ════════════════════════════
+           FOOTER
+        ════════════════════════════ */
+        #footer {
+            background-color: #0F0F0F !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+        .footer-inner { padding: 90px 0 70px; }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 20px !important;
+            font-weight: 600 !important;
+            color: rgba(255,255,255,0.75) !important;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 20px;
+        }
+        #footer h3 {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 9px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6) !important;
+            margin-bottom: 28px;
+        }
+        #footer p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.32) !important;
+            line-height: 2;
+        }
+        #footer p i { color: var(--gold) !important; opacity: 0.7; margin-right: 8px; }
+        #footer .btn-link {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 300 !important;
+            color: rgba(255,255,255,0.32) !important;
+            text-decoration: none !important;
+            padding: 5px 0 !important;
+            display: block;
+            letter-spacing: 0 !important;
+            text-transform: none !important;
+            transition: color 0.2s;
+        }
+        #footer .btn-link:hover { color: var(--gold-light) !important; }
+        .footer-social { display: flex; gap: 8px; margin-top: 24px; }
+        .footer-social a {
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 11px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+        .footer-nl-wrap { position: relative; margin-top: 8px; }
+        .footer-nl-input {
+            background: rgba(255,255,255,0.04) !important;
+            border: 1px solid rgba(255,255,255,0.09) !important;
+            border-radius: 0 !important;
+            color: rgba(255,255,255,0.7) !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 11px !important;
+            letter-spacing: 0.06em;
+            width: 100%;
+            height: 48px;
+            padding: 0 110px 0 18px;
+            transition: border-color 0.2s;
+        }
+        .footer-nl-input:focus { border-color: var(--gold) !important; outline: none; }
+        .footer-nl-input::placeholder { color: rgba(255,255,255,0.22) !important; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+        .footer-nl-btn {
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            background: var(--gold) !important;
+            border: none !important;
+            border-radius: 0 !important;
+            font-family: 'Jost', sans-serif !important;
+            font-size: 9px !important;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #fff !important;
+            height: 34px;
+            padding: 0 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .footer-nl-btn:hover { background: var(--charcoal) !important; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05) !important;
+            padding: 22px 0;
+            background: #0F0F0F !important;
+        }
+        .footer-bottom p, .footer-bottom a {
+            font-family: 'Jost', sans-serif !important;
+            font-size: 11px !important;
+            color: rgba(255,255,255,0.18) !important;
+            letter-spacing: 0.06em;
+            text-decoration: none !important;
+            margin: 0;
+        }
+        .footer-bottom a:hover { color: var(--gold-light) !important; }
+
+        /* ════════════════════════════
+           BACK TO TOP
+        ════════════════════════════ */
+        .back-to-top {
+            background: var(--gold) !important;
+            border: none !important;
+            border-radius: 0 !important;
+            color: #fff !important;
+        }
+        .back-to-top:hover { background: var(--charcoal) !important; }
+
+        /* ════════════════════════════
+           RESPONSIVE
+        ════════════════════════════ */
+        @media (max-width: 991px) {
+            #heroCarousel .owl-carousel-item > img { height: 72vh; min-height: 480px; }
+            #heroCarousel .owl-carousel-inner { padding-bottom: 70px !important; }
+            .hero-scroll { display: none; }
+            .stats-inner { flex-wrap: wrap; }
+            .stat-item { flex: 1 1 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .about-visual { padding-right: 0; padding-bottom: 0; margin-bottom: 40px; }
+            .about-img-secondary { display: none; }
+            .about-img-primary { height: 380px; }
+            .features-visual { padding-left: 0; padding-top: 0; margin-top: 48px; }
+            .features-img-accent { display: none; }
+            .features-img-primary { height: 380px; }
+            .testimonial-item { padding: 0 16px 20px; }
+        }
+        @media (max-width: 575px) {
+            .stat-item { flex: 1 1 100%; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle" src="img/icons/icon-1.png" alt="">
+    </div>
+
+    <!-- Topbar -->
+    <div id="topbar" class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-3">
+                    <a class="px-2" href="tel:+0123456789"><i class="fa fa-phone-alt"></i>+012 345 6789</a>
+                    <a class="px-2" href="mailto:info@example.com"><i class="fa fa-envelope-open"></i>info@example.com</a>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-2">
+                    <a class="px-2" href="">Terms</a>
+                    <a class="px-2" href="">Privacy</a>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center gap-1">
+                    <a class="btn btn-sm-square" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light sticky-top px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <span class="nav-logo">ST Interiors</span>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu border-0 m-0">
+                        <a href="feature.html" class="dropdown-item">Our Features</a>
+                        <a href="project.html" class="dropdown-item">Our Projects</a>
+                        <a href="appointment.html" class="dropdown-item">Appointment</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="" class="btn btn-primary d-none d-lg-block" style="margin-right: 8px;">Book Consultation</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div id="heroCarousel" class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
+                <img src="img/carousel-1.jpg" alt="">
+                <div class="owl-carousel-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-9">
+                                <div class="hero-tag animated fadeIn">Interiors &amp; Exteriors</div>
+                                <h1 class="display-1 animated slideInDown">Crafting Spaces<br>That Inspire<br>How You Live</h1>
+                                <p class="hero-sub animated fadeIn">We design environments that reflect your vision — where timeless aesthetics meet purposeful space.</p>
+                                <div class="hero-actions animated slideInLeft">
+                                    <a href="" class="btn btn-primary">Explore Our Work</a>
+                                    <a href="" class="btn-ghost">Book a Consultation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-scroll d-none d-lg-flex">
+                    <div class="hero-scroll-line"></div>
+                    <span>Scroll</span>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-2.jpg'>">
+                <img src="img/carousel-2.jpg" alt="">
+                <div class="owl-carousel-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-9">
+                                <div class="hero-tag animated fadeIn">Architecture &amp; Design</div>
+                                <h1 class="display-1 animated slideInDown">Where Architecture<br>Meets<br>Elegance</h1>
+                                <p class="hero-sub animated fadeIn">From concept to completion — we transform your brief into beautifully crafted, enduring spaces.</p>
+                                <div class="hero-actions animated slideInLeft">
+                                    <a href="" class="btn btn-primary">Our Services</a>
+                                    <a href="" class="btn-ghost">View Projects</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-3.jpg'>">
+                <img src="img/carousel-3.jpg" alt="">
+                <div class="owl-carousel-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-9">
+                                <div class="hero-tag animated fadeIn">25 Years of Excellence</div>
+                                <h1 class="display-1 animated slideInDown">Your Dream Home,<br>Thoughtfully<br>Designed</h1>
+                                <p class="hero-sub animated fadeIn">Award-winning studio trusted by hundreds of clients for interiors that last a lifetime.</p>
+                                <div class="hero-actions animated slideInLeft">
+                                    <a href="" class="btn btn-primary">About the Studio</a>
+                                    <a href="" class="btn-ghost">Get in Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div id="stats" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container-fluid px-0">
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <span class="stat-number" data-toggle="counter-up">500</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-toggle="counter-up">25</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-toggle="counter-up">320</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-toggle="counter-up">18</span>
+                    <span class="stat-label">Awards Won</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pillars -->
+    <div id="facts" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="pillar-card" style="border-right: 1px solid var(--border); padding-right: 44px;">
+                        <span class="pillar-num">01</span>
+                        <h3>Design Approach</h3>
+                        <p>Every project begins with deep listening. We translate your lifestyle and aspirations into spaces that feel authentically yours.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="pillar-card" style="padding-left: 44px; padding-right: 44px; border-right: 1px solid var(--border);">
+                        <span class="pillar-num">02</span>
+                        <h3>Innovative Solutions</h3>
+                        <p>Blending contemporary techniques with timeless principles, we solve complex design challenges with clarity and intention.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="pillar-card" style="padding-left: 44px;">
+                        <span class="pillar-num">03</span>
+                        <h3>Project Management</h3>
+                        <p>From initial brief to final reveal, our team ensures every detail is executed on time, on budget, and beyond expectation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="about-visual">
+                        <img class="about-img-primary" src="img/about-1.jpg" alt="">
+                        <img class="about-img-secondary" src="img/about-2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h4 class="section-title">About the Studio</h4>
+                    <h1 style="font-size: clamp(32px, 4.5vw, 56px); line-height: 1.08;">A Creative Studio For Spaces You'll Love to Live In</h1>
+                    <p class="body-text" style="margin-top: 26px;">We are an award-winning interiors and exteriors studio with a passion for creating spaces that are both beautiful and deeply personal. Our multidisciplinary team brings together architecture, interior design, and project delivery under one roof.</p>
+                    <p class="body-text">Whether it's a private residence, commercial space, or a complete architectural project, we approach every brief with curiosity, craft, and an unwavering commitment to quality.</p>
+                    <div class="exp-strip">
+                        <div class="exp-box">
+                            <span class="exp-number" data-toggle="counter-up">25</span>
+                            <span class="exp-unit">Years</span>
+                        </div>
+                        <div class="exp-text">
+                            <strong>Years of Working Experience</strong>
+                            Trusted by over 300 clients across residential, commercial, and hospitality projects.
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" href="">Discover Our Story</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div id="services" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="svc-header row align-items-end">
+                <div class="col-lg-7">
+                    <h4 class="section-title label-light">Our Services</h4>
+                    <h1 class="section-main-title">Focused on Modern Architecture &amp; Interior Design</h1>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <a href="service.html" class="btn-ghost" style="margin-bottom: 10px; display: inline-flex;">View All Services</a>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="svc-card">
+                        <img class="svc-bg" src="img/service-1.jpg" alt="">
+                        <div class="svc-card-body">
+                            <h3>Architecture</h3>
+                            <p>Structural design that balances form, function, and the human experience.</p>
+                            <a class="svc-link" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="svc-card">
+                        <img class="svc-bg" src="img/service-2.jpg" alt="">
+                        <div class="svc-card-body">
+                            <h3>3D Visualisation</h3>
+                            <p>Photorealistic renders that bring your concept to life before a brick is laid.</p>
+                            <a class="svc-link" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="svc-card">
+                        <img class="svc-bg" src="img/service-3.jpg" alt="">
+                        <div class="svc-card-body">
+                            <h3>Space Planning</h3>
+                            <p>Optimised layouts that maximise flow, light, and livability.</p>
+                            <a class="svc-link" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="svc-card">
+                        <img class="svc-bg" src="img/service-4.jpg" alt="">
+                        <div class="svc-card-body">
+                            <h3>Interior Design</h3>
+                            <p>Curated palettes and furnishings that express a refined, individual character.</p>
+                            <a class="svc-link" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="svc-card">
+                        <img class="svc-bg" src="img/service-5.jpg" alt="">
+                        <div class="svc-card-body">
+                            <h3>Renovation</h3>
+                            <p>Considered transformations that honour the existing and reimagine the possible.</p>
+                            <a class="svc-link" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="svc-card">
+                        <img class="svc-bg" src="img/service-6.jpg" alt="">
+                        <div class="svc-card-body">
+                            <h3>Construction</h3>
+                            <p>End-to-end build management with craftspeople dedicated to exacting standards.</p>
+                            <a class="svc-link" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div id="features" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h4 class="section-title">Why Choose Us</h4>
+                    <h1 class="features-title">Three Reasons Our Clients Keep Coming Back</h1>
+                    <p class="features-intro">We don't just design rooms — we create experiences. Our philosophy is rooted in partnership, precision, and a genuine love for great design.</p>
+                    <div class="why-item">
+                        <span class="why-num">01</span>
+                        <div>
+                            <h3>Client-First Design Process</h3>
+                            <p>Every decision is guided by your brief. We listen deeply, propose boldly, and refine collaboratively until the result is unmistakably yours.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-num">02</span>
+                        <div>
+                            <h3>Innovative, Purposeful Solutions</h3>
+                            <p>We push creative boundaries while staying grounded in practicality — designing spaces that are as liveable as they are beautiful.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-num">03</span>
+                        <div>
+                            <h3>Transparent Project Management</h3>
+                            <p>No surprises. Clear timelines, honest budgets, and regular communication at every stage of the process.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="features-visual">
+                        <img class="features-img-primary" src="img/about-1.jpg" alt="">
+                        <img class="features-img-accent" src="img/about-2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div id="projects" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 640px;">
+                <h4 class="section-title" style="justify-content: center;">Selected Work</h4>
+                <h1 class="projects-title">Recent Commissions &amp; Completed Projects</h1>
+            </div>
+            <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4">
+                    <div class="nav nav-pills d-flex flex-column w-100 h-100">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button"><h3>01. Modern Complex</h3></button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button"><h3>02. Royal Hotel</h3></button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button"><h3>03. Maxwell Building</h3></button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button"><h3>04. Shopping Complex</h3></button>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tab-content w-100">
+                        <div class="tab-pane fade show active" id="tab-pane-1">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 360px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute w-100 h-100" src="img/project-1.jpg" style="object-fit:cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h1>A Landmark in Modern Urban Living</h1>
+                                    <p class="project-desc">A residential complex that redefines urban living through considered materiality and generous shared spaces.</p>
+                                    <div class="project-check">Design Approach</div>
+                                    <div class="project-check">Innovative Solutions</div>
+                                    <div class="project-check">Project Management</div>
+                                    <a href="" class="btn btn-primary" style="margin-top: 24px;">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-pane-2">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 360px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute w-100 h-100" src="img/project-2.jpg" style="object-fit:cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h1>Heritage Character, Contemporary Comfort</h1>
+                                    <p class="project-desc">A boutique hotel merging historic fabric with modern luxury — offering guests an unforgettable sense of place.</p>
+                                    <div class="project-check">Design Approach</div>
+                                    <div class="project-check">Innovative Solutions</div>
+                                    <div class="project-check">Project Management</div>
+                                    <a href="" class="btn btn-primary" style="margin-top: 24px;">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-pane-3">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 360px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute w-100 h-100" src="img/project-3.jpg" style="object-fit:cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h1>Light-Filled Floors, Timeless Facade</h1>
+                                    <p class="project-desc">A commercial building prioritising human experience — biophilic features and a facade that will endure.</p>
+                                    <div class="project-check">Design Approach</div>
+                                    <div class="project-check">Innovative Solutions</div>
+                                    <div class="project-check">Project Management</div>
+                                    <a href="" class="btn btn-primary" style="margin-top: 24px;">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-pane-4">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 360px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute w-100 h-100" src="img/project-4.jpg" style="object-fit:cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h1>A Retail Destination Designed to Delight</h1>
+                                    <p class="project-desc">A masterclass in wayfinding, materiality, and immersive brand environments that draw visitors back.</p>
+                                    <div class="project-check">Design Approach</div>
+                                    <div class="project-check">Innovative Solutions</div>
+                                    <div class="project-check">Project Management</div>
+                                    <a href="" class="btn btn-primary" style="margin-top: 24px;">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointment -->
+    <div id="appointment" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h4 class="section-title label-light">Book a Consultation</h4>
+                    <h1 class="appt-title">Start Your Project With a Conversation</h1>
+                    <p class="appt-sub">Tell us about your vision and we'll arrange a no-obligation consultation with one of our senior designers.</p>
+                    <div class="contact-tile">
+                        <div class="contact-icon"><i class="fa fa-phone-alt"></i></div>
+                        <div>
+                            <span class="ct-label">Call Us</span>
+                            <h3>+012 345 6789</h3>
+                        </div>
+                    </div>
+                    <div class="contact-tile">
+                        <div class="contact-icon"><i class="fa fa-envelope-open"></i></div>
+                        <div>
+                            <span class="ct-label">Email Us</span>
+                            <h3>info@example.com</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row g-4">
+                        <div class="col-12 col-sm-6">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <input type="text" class="form-control" placeholder="Your Mobile">
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <select class="form-select">
+                                <option selected disabled>Choose Service</option>
+                                <option>Architecture</option>
+                                <option>Interior Design</option>
+                                <option>3D Visualisation</option>
+                                <option>Renovation</option>
+                                <option>Construction</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <input type="text" class="form-control datetimepicker-input" id="appt-date" placeholder="Preferred Date" data-target="#appt-date" data-toggle="datetimepicker">
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <input type="text" class="form-control datetimepicker-input" id="appt-time" placeholder="Preferred Time" data-target="#appt-time" data-toggle="datetimepicker">
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" rows="4" placeholder="Tell us about your project"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 appt-submit" type="submit">Book Appointment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div id="testimonials" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h4 class="section-title" style="justify-content: center;">Client Stories</h4>
+                <h1 class="testimonials-title">What Our Clients Say About Working With Us</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='img/testimonial-1.jpg' alt=''>">
+                    <p class="testimonial-quote">Working with this studio was a transformative experience. They listened patiently, designed brilliantly, and delivered a home that feels entirely like us — only better than we could have imagined.</p>
+                    <h3 class="testimonial-name">Sarah &amp; James Mitchell</h3>
+                    <span class="testimonial-role">Private Residence, Kochi</span>
+                </div>
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='img/testimonial-2.jpg' alt=''>">
+                    <p class="testimonial-quote">The attention to detail was extraordinary. Every material, every finish, every proportion had been considered. Our office has never felt more inspiring — or more productive.</p>
+                    <h3 class="testimonial-name">Ananya Krishnan</h3>
+                    <span class="testimonial-role">Director, Meridian Consulting</span>
+                </div>
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='img/testimonial-3.jpg' alt=''>">
+                    <p class="testimonial-quote">From our very first meeting, we felt heard. The project was delivered on time, within budget, and to a standard that has genuinely exceeded all our expectations.</p>
+                    <h3 class="testimonial-name">Ravi &amp; Priya Nair</h3>
+                    <span class="testimonial-role">Villa Renovation, Trivandrum</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="footer-inner">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <span class="footer-logo">ST Interiors</span>
+                        <p>Crafting beautiful, purposeful spaces for over 25 years. Architecture, interiors, and exteriors — all under one roof.</p>
+                        <p style="margin-top: 20px;">
+                            <i class="fa fa-map-marker-alt"></i>123 Design Street, Kochi<br>
+                            <i class="fa fa-phone-alt" style="margin-top: 6px; display: inline-block;"></i>+012 345 67890<br>
+                            <i class="fa fa-envelope" style="margin-top: 6px; display: inline-block;"></i>info@example.com
+                        </p>
+                        <div class="footer-social">
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3>Services</h3>
+                        <a class="btn btn-link" href="">Architecture</a>
+                        <a class="btn btn-link" href="">3D Visualisation</a>
+                        <a class="btn btn-link" href="">Space Planning</a>
+                        <a class="btn btn-link" href="">Interior Design</a>
+                        <a class="btn btn-link" href="">Renovation</a>
+                        <a class="btn btn-link" href="">Construction</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3>Studio</h3>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Our Projects</a>
+                        <a class="btn btn-link" href="">Contact</a>
+                        <a class="btn btn-link" href="">Book Appointment</a>
+                        <a class="btn btn-link" href="">Terms &amp; Privacy</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3>Newsletter</h3>
+                        <p>Stay inspired. Design insights, project reveals, and studio news — delivered monthly.</p>
+                        <div class="footer-nl-wrap" style="margin-top: 24px;">
+                            <input class="footer-nl-input" type="email" placeholder="Your email address">
+                            <button class="footer-nl-btn">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        <p>&copy; 2024 <a href="#">ST Interiors &amp; Exteriors</a>. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p>Designed for spaces worth living in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

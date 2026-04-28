@@ -5,12 +5,25 @@
     --dark: #252525;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-5 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.02em;
+}
+
 h1,
 h2,
 .h1,
 .h2,
 .fw-bold {
-    font-weight: 600 !important;
+    font-weight: 700 !important;
 }
 
 h3,
